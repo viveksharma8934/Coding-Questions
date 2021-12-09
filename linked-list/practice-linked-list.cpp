@@ -30,6 +30,16 @@ void insertAtTail(node *&head, int value)
     temp->next = n;
 }
 
+void deleteNode(node *&head, int value)
+{
+    node *temp = head;
+    while (temp->next->data != value)
+    {
+        temp = temp->next;
+    }
+    temp->next = temp->next->next;
+    // free(temp->next);
+}
 void display(node *head)
 {
     node *temp = head;
@@ -40,6 +50,23 @@ void display(node *head)
     }
 }
 
+node *reverse(node *&head)
+{
+    node *currptr = head;
+    node *prevptr = NULL;
+    node *nextptr;
+
+    while (currptr != NULL)
+    {
+        nextptr = currptr->next;
+        currptr->next = prevptr;
+
+        prevptr = currptr;
+        currptr = nextptr;
+    }
+    return prevptr;
+}
+
 int main()
 {
     node *head = NULL;
@@ -47,4 +74,6 @@ int main()
     insertAtTail(head, 2);
     insertAtTail(head, 3);
     display(head);
+    node *newptr = reverse(head);
+    display(newptr);
 }

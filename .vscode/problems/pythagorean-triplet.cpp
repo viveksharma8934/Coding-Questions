@@ -1,39 +1,58 @@
-#include<stdio.h>
-#include<iostream>
+#include <iostream>
+#include <stack>
 
 using namespace std;
 
-bool check(int x,int y,int z){
-    int a =max(x,max(y,z));
-    int b,c;
-    if(a==x){
-        b=y;
-        c=z;
+class Node
+{
+public:
+    int data;
+    Node *next;
+    Node(int x)
+    {
+        data = x;
+        next = NULL;
     }
-    else if(a==y){
-        b=x;
-        c=z;
-    }
-    else{
-        b=x;
-        c=y;
-    }
-    if(a*a == b*b + c*c){
-        return true;
-    }
-    else {
-        return false;
-    }
-}
+};
 
+class Solution
+{
+public:
+    bool isPalindrome(Node *head)
+    {
+        stack<Node *> st;
+        Node *t = head;
+        while (t)
+        {
+            st.push(t);
+            t = t->next;
+        }
+        while (t)
+        {
+            if (st.top()->data != t->data)
+                return 0;
+            st.pop();
+            t = t->next;
+        }
+        return 1;
+    }
+};
 
-int main(){
-    int a,b,c;
-    cin>>a>>b>>c;
-    if(check(a,b,c)){
-        cout<<"PT";
+int main()
+{
+    Node *head = NULL;
+    Node *temp = NULL;
+    int firstdata, l, n;
+    cin >> n;
+    cin >> firstdata;
+    head = new Node(firstdata);
+    temp = head;
+    for (int i = 1; i < n; i++)
+    {
+        cin >> l;
+        temp->next = new Node(l);
+        temp = temp->next;
     }
-    else{
-        cout<<"not PT";
-    }
+    Solution obj;
+    cout << obj.isPalindrome(head) << endl;
 }

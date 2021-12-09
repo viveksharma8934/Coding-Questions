@@ -6,6 +6,8 @@
     "xutility": "cpp",
     "iosfwd": "cpp",
     "vector": "cpp",
-    "cmath": "cpp"
+    "cmath": "cpp",
+    "xtree": "cpp",
+    "ostream": "cpp"
   }
 }

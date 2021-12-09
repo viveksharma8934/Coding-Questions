@@ -1,0 +1,1 @@
+{"name":"Local: pythagorean-triplet","url":"e:\\Projects\\CP\\.vscode\\problems\\pythagorean-triplet.cpp","tests":[{"id":1638373730672,"input":"4\n1\n1 1 1 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Projects\\CP\\.vscode\\problems\\pythagorean-triplet.cpp","group":"local","local":true}
